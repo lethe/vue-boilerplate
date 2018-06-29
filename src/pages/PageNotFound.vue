@@ -1,14 +1,18 @@
 <script>
+		let timer = 10000
+				let seconds = timer / 1000
 	export default {
 		name: 'PageNotFound',
 		data() {
-			return {}
+			return {
+      timer,
+      seconds
+      }
 		},
 		methods: {
 			timer(){
-				let timer = 10000
-				let seconds = timer / 1000
-				setTimeout(() => { seconds = seconds--; this.redirect() }, timer)
+		  
+				setTimeout(() => { this.seconds = this.seconds--; this.redirect() }, this.timer)
 			},
 			redirect() {
 				this.$router.push({ name: 'home'})
@@ -26,7 +30,7 @@
 			<div class="cover-container h-100 row align-items-center">
 				<div role="main" class="inner cover col">
 					<h1 class="cover-heading">Page Not Found</h1>
-					<p class="lead">The requested page does not exist. We will try to automatically redirect you to our home page in {{timer.seconds}} seconds.</p>
+					<p class="lead">The requested page does not exist. We will try to automatically redirect you to our home page in {{seconds}} seconds.</p>
 					<p class="lead">
 						<button class="btn btn-light" @click="$router.go(-1)">Go Back!</button>
 						<button class="btn btn-light" @click="$router.push({ name: 'home'})">Go To Home</button>
