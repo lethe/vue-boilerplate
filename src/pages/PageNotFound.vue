@@ -10,16 +10,12 @@
       }
 		},
 		methods: {
-			timer(){
-		  
-				setTimeout(() => { this.seconds = this.seconds--; this.redirect() }, this.timer)
-			},
 			redirect() {
 				this.$router.push({ name: 'home'})
 			}
 		},
 		mounted() {
-			this.timer()
+				setTimeout(() => { this.seconds = this.seconds--; this.redirect() }, this.timer)
 		}
 	}
 </script>
