@@ -1,0 +1,58 @@
+html,
+body {
+	font-family: $base-font;
+	color: $darkest;
+	font-size: 14px;
+	-webkit-font-smoothing: antialiased;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+    letter-spacing: 0.025em;
+	// Viewport width based font-size 
+	// @each $break in $breakpoints {
+	//   @media screen and (min-width: $break+px ) {
+	//    	font-size: (1000 / $break)*1vw !important;
+	//   }
+	// }
+	// @include break-down(extra-small) { 
+	//     font-size: 12px
+	// }
+}
+
+button:focus {
+	outline: none;
+}
+
+b {
+	font-family: $bold
+}
+
+img.responsive {
+	max-width: 100%;
+	height: auto;
+}
+
+:focus {
+	outline: none;
+}
+
+@each $name, $color in $colors {
+	.bg-#{$name} {
+		background-color: #{$color} !important
+	}
+}
+
+.card {
+	@include box-shadow(0, .3rem, 1.5rem, rgba($darkest, 0.15));
+	border-color: transparent;
+	.card-body {
+		padding: 1rem 2.6rem;
+	}
+}
+
+@include break-only(handhelds) {
+	.container {
+		max-width: none;
+	}
+	.modal-dialog {
+		margin: 0;
+	}
+}

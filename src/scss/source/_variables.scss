@@ -1,0 +1,26 @@
+$base-font		: 'Montserrat', sans-serif;
+
+// Colors
+
+$primary		: #3c6382;
+$secondary		: #0a3d62;
+$dark			: $secondary;
+$success		: #079992;
+$danger			: #b71540;
+$warning		: #e58e26;
+$info			: #60a3bc;
+$darkest		: #000000;
+$white			: #ffffff;
+
+$colors : (
+	primary : $primary,
+	secondary : $secondary,
+	success : $success,
+	danger : $danger,
+	info : $info,
+	warning : $warning
+);
+
+$book 			: 'Gotham Rounded Book','Helvetica Neue',  Arial, sans-serif;
+$medium			: 'Gotham Rounded Medium','Helvetica Neue',  Arial, sans-serif;
+$bold 			: 'Gotham Rounded Bold','Helvetica Neue',  Arial, sans-serif;
