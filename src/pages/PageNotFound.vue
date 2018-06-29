@@ -1,21 +1,24 @@
 <script>
-		let timer = 10000
-				let seconds = timer / 1000
 	export default {
 		name: 'PageNotFound',
 		data() {
 			return {
-      timer,
-      seconds
-      }
+				seconds: 10
+			}
 		},
 		methods: {
 			redirect() {
-				this.$router.push({ name: 'home'})
+				let interval = setInterval(() => {
+					--this.seconds
+					if( this.seconds < 0 ) {
+						clearInterval(interval)
+						this.$router.push({ name: 'home'})
+					}
+				}, 1000)
 			}
 		},
 		mounted() {
-				setTimeout(() => { this.seconds = this.seconds--; this.redirect() }, this.timer)
+			this.redirect();
 		}
 	}
 </script>
