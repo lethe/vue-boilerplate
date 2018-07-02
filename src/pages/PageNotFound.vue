@@ -3,22 +3,26 @@
 		name: 'PageNotFound',
 		data() {
 			return {
-				seconds: 10
+				seconds: 3,
+				interval: false,
 			}
 		},
 		methods: {
 			redirect() {
-				let interval = setInterval(() => {
+				this.interval = setInterval(() => {
 					--this.seconds
 					if( this.seconds < 0 ) {
-						clearInterval(interval)
+						this.seconds = 0
 						this.$router.push({ name: 'home'})
 					}
 				}, 1000)
 			}
 		},
 		mounted() {
-			this.redirect();
+			this.redirect()
+		},
+		destroyed() {
+			clearInterval(this.interval)
 		}
 	}
 </script>
@@ -61,7 +65,7 @@
 		  .cover {
 			padding: 0 1.5rem;
 			hr {
-				border-color: rgba(white, 0.25)
+				border-color: rgba(white, 0.175)
 			}
 			.btn {
 				font-weight: 700;
