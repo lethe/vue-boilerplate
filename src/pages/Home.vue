@@ -1,6 +1,7 @@
 <script>
 	import { mapGetters } from "vuex";
 	import MainHeader from "@/components/Header.vue";
+	import MainSlider from "@/components/Slider.vue";
 
 	export default {
 		name: 'Home',
@@ -9,6 +10,7 @@
 		},
 		components: {
 			MainHeader,
+			MainSlider
 		},
 		computed: {
 
@@ -31,6 +33,9 @@
 	          	<button class="btn btn-outline-dark" @click="$router.push({ name: 'samplePage'})">Go To Sample Page</button>
 	          </p>
 	        </div>
-	      </div>
+	    </div>
+	    <div class="container-fluid">
+	    	<main-slider></main-slider>
+	    </div>
 	</section>
 </template>
