@@ -2,6 +2,7 @@
 	import { mapGetters } from "vuex";
 	import MainHeader from "@/components/Header.vue";
 	import RegisterForm from "@/components/auth/RegisterForm.vue";
+	import LoginForm from "@/components/auth/LoginForm.vue";
 
 	export default {
 		name: 'SamplePage',
@@ -10,7 +11,8 @@
 		},
 		components: {
 			MainHeader,
-			RegisterForm
+			RegisterForm,
+			LoginForm
 		},
 		computed: {
 
@@ -36,7 +38,14 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-5">
+					<h2>Register Form</h2>
+					<hr/>
 					<register-form></register-form>
+				</div>
+				<div class="col-5">
+					<h2>Login Form</h2>
+					<hr/>
+					<login-form></login-form>
 				</div>
 			</div>
 		</div>

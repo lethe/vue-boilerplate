@@ -8,7 +8,27 @@
 				type: String,
 				default: 'text'
 			}
-	    }
+	    },
+	    data () {
+			return {
+				inputValue: this.value
+			}
+		},
+		methods: {
+			updateValues () {
+				this.$emit('input', this.inputValue)
+			}
+		},
+		watch: {
+			value (val) {
+				this.inputValue = val
+			},
+			inputValue (val, oldVal) {
+				if(val !== oldVal) {
+					this.updateValues()
+				}
+			}
+		}
 	}
 </script>
 <template>
@@ -16,6 +36,6 @@
 		:type="type"
 		:name="name"
 		:placeholder="placeholder"
-		v-validate="v-validate"
+		v-model="inputValue"
 		class="form-control">
 </template>
