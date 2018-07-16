@@ -11,8 +11,13 @@
 		},
 		methods: {
 			validate () {
+				console.log()
 				this.$validator.validateAll()
-				console.log(this.registerData.email, this.registerData.name)
+				.then((result) => {
+					if(result) {
+						console.log('Form submitted!')
+					}
+				})
 			},
 			clear () {
 				this.registerData.email = null;
@@ -23,7 +28,7 @@
 </script>
 
 <template>
-	<form @submit.prevent="validate">
+	<form @submit.prevent="validate()">
 		<form-group label="Enter your email">
 			<form-input
 				slot="input" name="email" v-model="registerData.email" v-validate="'required|email'"
@@ -52,6 +57,6 @@
 				</div>
 		</form-group>
 		<button type="button" @click="clear" class="btn btn-link">clear</button>
-		<button type="submit" class="btn btn-secondary">Submit</button>
+		<button type="submit" class="btn btn-secondary" :disabled="errors.any()">Submit</button>
 	</form>
 </template>

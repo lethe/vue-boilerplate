@@ -5,18 +5,23 @@
 			return {
 				loginData: {
 					email: null,
-					name: null,
+					password: null,
 				}
 			}
 		},
 		methods: {
-			validate () {
+			validate() {
+				console.log()
 				this.$validator.validateAll()
-				console.log(this.loginData.email, this.loginData.name)
+				.then((result) => {
+					if(result) {
+						console.log('Form submitted!')
+					}
+				})
 			},
 			clear () {
 				this.loginData.email = null;
-				this.loginData.name = null
+				this.loginData.password = null
 			}
 		}
 	}
@@ -42,6 +47,6 @@
 					{{ errors.first('password') }}
 				</div>
 		</form-group>
-		<button type="submit" class="btn btn-secondary">Login</button>
+		<button type="submit" class="btn btn-secondary" :disabled="errors.any()">Login</button>
 	</form>
 </template>

@@ -7,7 +7,9 @@
 	export default {
 		name: 'SamplePage',
 		data() {
-			return {}
+			return {
+				form : 'register'
+			}
 		},
 		components: {
 			MainHeader,
@@ -16,6 +18,11 @@
 		},
 		computed: {
 
+		},
+		methods: {
+			changeForm(name) {
+				this.form = name
+			}
 		},
 		created() {
 			
@@ -36,16 +43,20 @@
 			</div>
 		</div>
 		<div class="container">
-			<div class="row">
-				<div class="col-5">
+			<div class="row justify-content-center">
+				<div class="col-7" v-if="form == 'register'">
 					<h2>Register Form</h2>
 					<hr/>
 					<register-form></register-form>
+					<hr/>
+					<button @click="changeForm('login')" class="btn btn-link">Go to login form</button>
 				</div>
-				<div class="col-5">
+				<div class="col-7" v-if="form == 'login'">
 					<h2>Login Form</h2>
 					<hr/>
 					<login-form></login-form>
+					<hr/>
+					<button @click="changeForm('register')" class="btn btn-link">Go to register form</button>
 				</div>
 			</div>
 		</div>
