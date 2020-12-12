@@ -1,0 +1,57 @@
+// Breakpoints
+
+$break-xs: 320px;
+$break-sm: 576px;
+$break-md: 768px;
+$break-lg: 992px;
+$break-xl: 1200px;
+
+$breakpoints : ( 320, 576, 768, 992, 1200 );
+
+@mixin break-up($media) {
+  @if $media == handhelds {
+    @media only screen and (min-width: $break-sm) { @content; }
+  }
+  @else if $media == tablets {
+    @media only screen and (min-width: $break-md) { @content; }
+  }
+  @else if $media == mid-screens {
+    @media only screen and (min-width: $break-lg) { @content; }
+  }
+  @else if $media == wide-screens {
+    @media only screen and (min-width: $break-xl) { @content; }
+  }
+}
+
+@mixin break-down($media) {
+  @if $media == extra-small {
+    @media only screen and (max-width: $break-xs) { @content; }
+  }
+  @else if $media == handhelds {
+    @media only screen and (max-width: $break-sm - 0.02px) { @content; }
+  }
+  @else if $media == tablets {
+    @media only screen and (max-width: $break-md - 0.02px) { @content; }
+  }
+  @else if $media == mid-screens {
+    @media only screen and (max-width: $break-lg - 0.02px) { @content; }
+  }
+  @else if $media == wide-screens {
+    @media only screen and (max-width: $break-xl - 0.02px) { @content; }
+  }
+}
+
+@mixin break-only($media) {
+  @if $media == handhelds {
+    @media (min-width: 0) and (max-width: $break-sm - 0.02px) { @content; }
+  }
+  @else if $media == tablets {
+    @media (min-width: $break-sm) and (max-width: $break-md - 0.02px) { @content; }
+  }
+  @else if $media == mid-screens {
+    @media (min-width: $break-md) and (max-width: $break-lg - 0.02px) { @content; }
+  }
+  @else if $media == wide-screens {
+    @media (min-width: $break-lg) and (max-width: $break-xl - 0.02px) { @content; }
+  }
+}
