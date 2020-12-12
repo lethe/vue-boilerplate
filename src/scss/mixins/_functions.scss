@@ -56,16 +56,16 @@
 @mixin rotateY ($deg) {
   @include transform(rotateY(#{$deg}deg));
 }
- 
+
 // scale
 @mixin scale($scale) {
    @include transform(scale($scale));
-} 
+}
 
 // scale3d
 @mixin scale3d($sx, $sy, $sz) {
    @include transform(scale3d($sx, $sy, $sz));
-} 
+}
 
 // translate
 @mixin translate ($x, $y) {
@@ -103,7 +103,7 @@
 
 // Push auto
 @mixin auto-margin {
-    margin: { 
+    margin: {
         left: auto;
         right: auto;
     }
